@@ -28,6 +28,122 @@
   color: #61dafb;
 }
 
+.search-box{
+  width: 50%;  
+  height: 75px;
+  background: lightgray;
+  border-radius: 5px;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.row{
+  margin-left: 10px;
+  background: white;
+  border: 1px solid black;
+}
+
+.season-drop-down{
+  margin-left: 10px;
+}
+
+.season-select{
+  height: 40px;
+  width: 50px;
+}
+
+.app{
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.information-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.not-image{
+  border:2px solid black;
+  border-radius: 5px;
+  width: 50%;
+  height: 650px;
+}
+
+
+#title{
+  text-align: center;
+  font-size: 35px;
+  margin-top: 25px;
+}
+
+#rating{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 13px;
+}
+
+#genres{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 13px;
+}
+
+#plot{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 13px;
+}
+
+.with-image{
+  border:2px solid black;
+  border-radius: 5px;
+  width: 50%;
+  height: 650px;
+  text-align: center;
+}
+
+#image{
+  width: 90%;
+  margin-top: 25px;  
+}
+
+.top-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.top-information{
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: lightgrey;
+  height: 75px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-information-text{
+  font-size: 45px;
+  
+}
+
+input{
+  flex: 1;
+  height: 50px;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font-size: 18px;
+  color: #333;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
