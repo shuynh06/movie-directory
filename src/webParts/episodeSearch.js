@@ -3,6 +3,13 @@ import React, { useState, useEffect } from 'react';
 function EpisodeSearch (props) {
     const [query, setQuery] = useState('')
 
+    // TODO: when searching for a new show (when a show is already searched) reset the the season and episode selects
+    // TODO: remake handleSubmission to more like updateEpisodes and updateInformation  (if possible)
+    // TODO: after above are done, check for bugs
+    // TODO: figure out how to hide API key
+    // TODO: figure out how to deploy
+    // TODO: if this doesnt work in the morning then make sure to put API key back
+
     const handleSubmission = (e) => {
         e.preventDefault();
         props.onSearch(query);
@@ -12,7 +19,11 @@ function EpisodeSearch (props) {
     const updateEpisodes = () => {
         const seasonSelect = document.getElementById("season-select");
         props.setSeason(seasonSelect.value);
-        console.log('changed', seasonSelect.value);
+    }
+
+    const updateInformation = () => {
+        const episodeSelect = document.getElementById("episode-select");
+        props.setEpisode(episodeSelect.value);
     }
 
     useEffect(() => {
@@ -69,12 +80,12 @@ function EpisodeSearch (props) {
             
             <div className = "season-drop-down">
                 <label for="drop-one">Seasons: </label>
-                <select className="season-select" name="drop-one" id="season-select"  value={props.season || 1} onChange={updateEpisodes}> </select>
+                <select className="season-select" name="drop-one" id="season-select" onChange={updateEpisodes}> </select>
             </div>
 
             <div className = "episode-drop-down">
                 <label for="drop-two">Episode: </label>
-                <select className="episode-select" name="drop-two" id="episode-select"></select>
+                <select className="episode-select" name="drop-two" id="episode-select" onChange={updateInformation}></select>
 
             </div>
         </div>

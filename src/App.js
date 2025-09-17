@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     if (!showTitle) { return };
 
-    let APIKey = "60f9d8a6";
+    let APIKey = "";
     let baseUrl = "https://www.omdbapi.com/";
     let url = baseUrl + "?t=" + showTitle.replace(/ /g, "+") + "&apikey=" + APIKey;
 
@@ -38,7 +38,7 @@ function App() {
       .then((json) => {
         console.log(json)
 
-        if ((!episode && showTitle && !season) || (showTitle && !season && episode)) {
+        if ((!episode && showTitle && !season) || (showTitle && season && episode)) {
           setEpisodeTitle(json.Title)
           setGenres(json.Genre)
           setReleaseDate(json.Released)
