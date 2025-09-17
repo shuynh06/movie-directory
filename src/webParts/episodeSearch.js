@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function EpisodeSearch (props) {
     const [query, setQuery] = useState('')
@@ -7,8 +7,12 @@ function EpisodeSearch (props) {
         e.preventDefault();
         props.onSearch(query);
         
+    }
+
+    useEffect(() => {
         const selectName = document.getElementById("season-select")
         if (props.seasonTotal) {
+            selectName.innerHTML = "";
             for (let i=0; i<parseInt(props.seasonTotal); i++) {
                 const option = document.createElement('option');
 
@@ -18,7 +22,7 @@ function EpisodeSearch (props) {
                 selectName.appendChild(option);
             }
         }
-    }
+    }, [props.seasonTotal]);
 
     return (
         <div className="search-box">

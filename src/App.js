@@ -18,18 +18,18 @@ function App() {
   const [rating, setRating] = useState('');
   const [imageURL, setImageURL] = useState('');
 
-  const fetchAPI = () => {
-    let baseUrl = "https://www.omdbapi.com/"
-    let APIKey = "60f9d8a6"
+
+  useEffect(() => {
+    if (!showTitle) { return };
+
+    let APIKey = "60f9d8a6";
+    let baseUrl = "https://www.omdbapi.com/";
     let url = baseUrl + "?t=" + showTitle.replace(/ /g, "+") + "&apikey=" + APIKey;
-    
+
     if (season) {
-      if (episode) {
-        url = url + '&Season=' + season + '&Episode=' + episode
-      } else {
-        url = url + '&Season=' + season
-      }
-    } 
+      url += '&Season=' + season;
+      if (episode) { url += '&Episode=' + episode};
+    };
 
     console.log("url:" + url)
     fetch(url)
@@ -43,17 +43,12 @@ function App() {
         setRating(json.imdbRating)
         setImageURL(json.Poster)
 
-        if (!episode) {
+        if (!episode && json.totalSeasons) {
           setSeasonTotal(json.totalSeasons)
         }
       });
-  }
 
-  useEffect(() => {
-    if (showTitle) {
-      fetchAPI();
-    }
-  }, [showTitle, fetchAPI]);
+  }, [showTitle, season, episode]);
 
   
 
