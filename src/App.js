@@ -35,14 +35,16 @@ function App() {
     fetch(url)
       .then((res) => res.json())
       .then((json) => {
-        setEpisodeTitle(json.Title)
-        setGenres(json.Genre)
-        setReleaseDate(json.Released)
-        setRunTime(json.Runtime)
-        setPlot(json.Plot)
-        setRating(json.imdbRating)
-        setImageURL(json.Poster)
-
+        console.log(json)
+        if ((!episode && showTitle && !season) || (showTitle && !season && episode)) {
+          setEpisodeTitle(json.Title)
+          setGenres(json.Genre)
+          setReleaseDate(json.Released)
+          setRunTime(json.Runtime)
+          setPlot(json.Plot)
+          setRating(json.imdbRating)
+          setImageURL(json.Poster)
+        };
         if (!episode && json.totalSeasons) {
           setSeasonTotal(json.totalSeasons)
         }
@@ -55,7 +57,9 @@ function App() {
   
   return (
     <div>
-      <Top setter = {{setShowTitle}} seasonTotal = {seasonTotal}/>
+      <Top 
+        setter = {{setShowTitle, setSeason, setEpisode}} 
+        seasonTotal = {seasonTotal}/>
       <EpisodeInformation 
         title = {episodeTitle}
         genres = {genres}

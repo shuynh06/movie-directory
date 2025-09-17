@@ -9,6 +9,12 @@ function EpisodeSearch (props) {
         
     }
 
+    const updateEpisodes = () => {
+        const selectName = document.getElementById("season-select");
+        props.setSeason(selectName.value);
+        console.log('changed', selectName.value);
+    }
+
     useEffect(() => {
         const selectName = document.getElementById("season-select")
         if (props.seasonTotal) {
@@ -33,7 +39,7 @@ function EpisodeSearch (props) {
             
             <div className = "season-drop-down">
                 <label for="drop-one">Seasons: </label>
-                <select className="season-select" name="drop-one" id="season-select">
+                <select className="season-select" name="drop-one" id="season-select" onChange={updateEpisodes}>
                 </select>
             </div>
         </div>

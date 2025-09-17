@@ -14,7 +14,12 @@ function Top ( {setter, seasonTotal} ) {
             <div className="top-information">
                 <font className="top-information-text">Movie Directory</font>
             </div>
-            <EpisodeSearch onSearch={handleSearch} seasonTotal = {seasonTotal}/>
+            <EpisodeSearch 
+            onSearch={handleSearch} 
+            seasonTotal = {seasonTotal} 
+            setSeason = {setter.setSeason} 
+            setEpisode = {setter.setEpisode}
+            />
         </div>
 
 
