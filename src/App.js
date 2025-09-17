@@ -8,6 +8,7 @@ function App() {
   const [showTitle, setShowTitle] = useState('');
   const [season, setSeason] = useState('');
   const [seasonTotal, setSeasonTotal] = useState('');
+  const [seasonInformation, setSeasonInformation] = useState('');
   const [episode, setEpisode] = useState('');
 
   const [episodeTitle, setEpisodeTitle] = useState('');
@@ -36,6 +37,7 @@ function App() {
       .then((res) => res.json())
       .then((json) => {
         console.log(json)
+
         if ((!episode && showTitle && !season) || (showTitle && !season && episode)) {
           setEpisodeTitle(json.Title)
           setGenres(json.Genre)
@@ -45,8 +47,13 @@ function App() {
           setRating(json.imdbRating)
           setImageURL(json.Poster)
         };
+
         if (!episode && json.totalSeasons) {
           setSeasonTotal(json.totalSeasons)
+        }
+
+        if (!episode && season) {
+          setSeasonInformation(json.Episodes)
         }
       });
 
@@ -59,7 +66,10 @@ function App() {
     <div>
       <Top 
         setter = {{setShowTitle, setSeason, setEpisode}} 
-        seasonTotal = {seasonTotal}/>
+        seasonTotal = {seasonTotal}
+        seasonInformation = {seasonInformation}
+        season = {season}
+      />
       <EpisodeInformation 
         title = {episodeTitle}
         genres = {genres}

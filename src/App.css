@@ -53,6 +53,15 @@
   width: 50px;
 }
 
+.episode-drop-down{
+  margin-left: 10px;
+}
+
+.episode-select{
+  height: 40px;
+  width: 200px;
+}
+
 .app{
   display: flex;
   align-items: center;

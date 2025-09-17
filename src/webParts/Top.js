@@ -2,7 +2,7 @@ import React from 'react';
 import EpisodeSearch from './episodeSearch';
 
 
-function Top ( {setter, seasonTotal} ) {
+function Top ( {setter, seasonTotal, season, seasonInformation} ) {
     const handleSearch = (searchQuery) => {
         console.log(searchQuery)
         setter.setShowTitle(searchQuery);
@@ -16,7 +16,9 @@ function Top ( {setter, seasonTotal} ) {
             </div>
             <EpisodeSearch 
             onSearch={handleSearch} 
+            season = {season}
             seasonTotal = {seasonTotal} 
+            seasonInformation = {seasonInformation}
             setSeason = {setter.setSeason} 
             setEpisode = {setter.setEpisode}
             />
