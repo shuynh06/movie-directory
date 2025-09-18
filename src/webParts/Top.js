@@ -6,7 +6,6 @@ function Top ( {setter, seasonTotal, season, seasonInformation} ) {
     const handleSearch = (searchQuery) => {
         console.log(searchQuery)
         setter.setShowTitle(searchQuery);
-        console.log("test:" + seasonTotal)
     };
 
     return (
@@ -19,6 +18,7 @@ function Top ( {setter, seasonTotal, season, seasonInformation} ) {
             season = {season}
             seasonTotal = {seasonTotal} 
             seasonInformation = {seasonInformation}
+            setShowTitle = {setter.setShowTitle}
             setSeason = {setter.setSeason} 
             setEpisode = {setter.setEpisode}
             />

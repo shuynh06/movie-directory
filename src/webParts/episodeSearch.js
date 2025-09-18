@@ -3,17 +3,23 @@ import React, { useState, useEffect } from 'react';
 function EpisodeSearch (props) {
     const [query, setQuery] = useState('')
 
-    // TODO: when searching for a new show (when a show is already searched) reset the the season and episode selects
-    // TODO: remake handleSubmission to more like updateEpisodes and updateInformation  (if possible)
     // TODO: after above are done, check for bugs
-    // TODO: figure out how to hide API key
+    // TODO: figure out how to hide API key & remove from past commits
     // TODO: figure out how to deploy
     // TODO: if this doesnt work in the morning then make sure to put API key back
 
-    const handleSubmission = (e) => {
+    const updateShow = (e) => {
         e.preventDefault();
-        props.onSearch(query);
+
+        const seasonSelect = document.getElementById("season-select")
+        const episodeSelect = document.getElementById("episode-select")
+        seasonSelect.innerHTML = "";
+        episodeSelect.innerHTML = "";
         
+        props.setSeason("");
+        props.setEpisode("");
+
+        props.setShowTitle(query);
     }
 
     const updateEpisodes = () => {
@@ -73,7 +79,7 @@ function EpisodeSearch (props) {
 
     return (
         <div className="search-box">
-            <form className="row" onSubmit={handleSubmission}>
+            <form className="row" onSubmit={updateShow}>
                 <input type="text" id="input-box" placeholder="Search..." value={query} onChange={(e) => setQuery(e.target.value)}/>
                 <button>Search</button>
             </form>

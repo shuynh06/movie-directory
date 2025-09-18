@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     if (!showTitle) { return };
 
-    let APIKey = "";
+    let APIKey = process.env.REACT_APP_OMDB_KEY;
     let baseUrl = "https://www.omdbapi.com/";
     let url = baseUrl + "?t=" + showTitle.replace(/ /g, "+") + "&apikey=" + APIKey;
 
